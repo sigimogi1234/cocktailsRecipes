@@ -1,0 +1,271 @@
+body {
+    background-color: #f8f8f8;
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* 헤더 */
+/* header{
+    width: 100%;
+    height: 56px;
+    background-color: #fff;
+    border-bottom: 1px solid #DBDBDB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header h1 a{
+    font-size: 20px;
+    font-weight: 600;
+    color: #494949;
+    padding: 8px;
+} */
+
+/* 콘텐츠 */
+.contents{
+    padding: 24px 20px;
+}
+
+/* 구분 */
+.sortWrap{
+    width: 100%;
+    margin-bottom: 16px;
+}
+.sortWrap .mainSort{
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+.sortWrap .mainSort li{
+    background-color: #f8f8f8;
+    color: #DBDBDB;
+    border-radius: 8px;
+    padding: 6px 0;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.sortWrap .mainSort li svg path{
+    stroke: #DBDBDB;
+}
+.sortWrap .mainSort li.on svg path{
+    stroke: #fff;
+}
+.sortWrap .mainSort li.all.on{
+    background-color: #777777;
+    color: #fff;
+}
+.sortWrap .mainSort li.base.on{
+    background-color: #E46A2D;
+    color: #fff;
+}
+.sortWrap .mainSort li.glass.on{
+    background-color: #3675EA;
+    color: #fff;
+}
+.sortWrap .mainSort li.method.on{
+    background-color: #A55DCD;
+    color: #fff;
+}
+.sortWrap .mainSort li.garnish.on{
+    background-color: #52B908;
+    color: #fff;
+}
+.sortWrap .mainSort li.etc.on{
+    background-color: #F3B711;
+    color: #fff;
+}
+.sortWrap .subSort{
+    position: relative;
+}
+.sortWrap .subSort .allSub{
+    z-index: 11;
+}
+.sortWrap .subSort .swiper{
+    overflow: hidden;
+    display: none;
+}
+.sortWrap .subSort .swiper.on{
+    display: block;
+}
+.sortWrap .subSort .swiper-wrapper{
+    display: flex;
+}
+.sortWrap .subSort .swiper .swiper-slide{
+    padding: 4px 8px;
+    cursor: pointer;
+    color: #DBDBDB;
+    font-size: 16px;
+    font-weight: 400;
+    width: auto;
+    white-space: nowrap;
+}
+.swiper-fade-left,
+.swiper-fade-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    z-index: 10;
+    pointer-events: none;
+    transition: all 0.3s;
+}
+.swiper-fade-left {
+    left: 0;
+    background: linear-gradient(to right, rgb(248, 248, 248), rgba(248, 248, 248, 0));
+}
+.swiper-fade-right {
+    right: 0;
+    background: linear-gradient(to left, rgba(248, 248, 248), rgba(248, 248, 248, 0));
+}
+.fade-hidden {
+    opacity: 0;
+}
+.sortWrap .subSort .allSub .swiper-slide.on{
+    color:#777777;
+}
+.sortWrap .subSort .baseSub .swiper-slide.on{
+    color:#E46A2D;
+}
+.sortWrap .subSort .glassSub .swiper-slide.on{
+    color:#3675EA;
+}
+.sortWrap .subSort .methodSub .swiper-slide.on{
+    color:#A55DCD;
+}
+.sortWrap .subSort .garnishSub .swiper-slide.on{
+    color:#52B908;
+}
+.sortWrap .subSort .etcSub .swiper-slide.on{
+    color:#F3B711;
+}
+
+/* 카드 */
+.cardWrap{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.cardWrap .card{
+    width: 100%;
+    background-color: #fff;
+    border-radius: 16px;
+    border: 1px solid #DBDBDB;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+    display: block;
+}
+.cardWrap .card.hide{
+    display: none;
+}
+.cardWrap .card .titleWrap{
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+}
+.cardWrap .card .titleWrap .title{
+    font-size: 20px;
+    font-weight: 600;
+    color: #494949;
+}
+.cardWrap .card .titleWrap .titleEng{
+    font-size: 14px;
+    font-weight: 400;
+    color: #777777;
+}
+.cardWrap .card .imgWrap{
+    margin-bottom: 8px;
+    display: flex;
+    gap: 8px;
+}
+.cardWrap .card .imgWrap .img{
+    background: url(img/img.jpg) no-repeat center/cover;
+    display: block;
+    width: calc(50% - 4px);
+    border-radius: 8px;
+    height: 160px;
+}
+.cardWrap .card .imgWrap .topic{
+    width: calc(50% - 4px);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+.cardWrap .card .imgWrap .topic li{
+    padding: 4px 8px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 400;
+}
+.cardWrap .card .imgWrap .topic li.baseTopic{
+    color: #E46A2D;
+    border: 1px solid #E46A2D;
+}
+.cardWrap .card .imgWrap .topic li.glassTopic{
+    color: #3675EA;
+    border: 1px solid #3675EA;
+}
+.cardWrap .card .imgWrap .topic li.methodTopic{
+    color: #A55DCD;
+    border: 1px solid #A55DCD;
+}
+.cardWrap .card .imgWrap .topic li.garnishTopic{
+    color: #52B908;
+    border: 1px solid #52B908;
+}
+.cardWrap .card .recipeWrap{
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+}
+.cardWrap .card .recipeWrap .recipe{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.cardWrap .card .recipeWrap .recipe li{
+    display: flex;
+    gap: 4px;
+}
+.cardWrap .card .recipeWrap .recipe li p{
+    font-size: 14px;
+    font-weight: 400;
+    color: #494949;
+}
+.cardWrap .card .recipeWrap .recipe li p.vol{
+    font-weight: 600;
+}
+.cardWrap .card .recipeWrap .hrz{
+    width: 100%;
+    height: 1px;
+    border: 0.5px dashed #DBDBDB;
+}
+.cardWrap .card .recipeWrap .note{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.cardWrap .card .recipeWrap .note li{
+    display: flex;
+    gap: 4px;
+}
+.cardWrap .card .recipeWrap .note li p{
+    font-size: 14px;
+    font-weight: 400;
+    color: #777777;
+}

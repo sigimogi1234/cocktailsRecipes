@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+    font-family: "Pretendard";
+    word-break: keep-all;
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,figure
+{ margin:0;  padding:0;}
+table {border-collapse:collapse; border-spacing:0;}
+fieldset,img {border:0;}
+address,caption,cite,code,dfn,var {font-style:normal; font-weight:normal; }
+ol,ul {list-style: none; }
+caption,th { text-align:left;}
+h1,h2,h3,h4,h5,h6 { font-size: 100%; font-weight:normal;}
+q:before,q:after {content:"";}
+abbr, acronym {border:0;}
+a{outline:1;   text-decoration:none; color:#666;}
+em { font-style:normal; }
+body {overflow-x: hidden;}
+button{border: 0; margin: 0; padding: 0; cursor: pointer; background-color: transparent; display: block;}
