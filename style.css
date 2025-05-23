@@ -41,7 +41,7 @@ header h1 a{
 }
 .sortWrap .mainSort li{
     background-color: #f8f8f8;
-    color: #DBDBDB;
+    color: #aaa;
     border-radius: 8px;
     padding: 6px 0;
     cursor: pointer;
@@ -54,7 +54,7 @@ header h1 a{
     width: 100%;
 }
 .sortWrap .mainSort li svg path{
-    stroke: #DBDBDB;
+    stroke: #aaa;
 }
 .sortWrap .mainSort li.on svg path{
     stroke: #fff;
@@ -86,9 +86,6 @@ header h1 a{
 .sortWrap .subSort{
     position: relative;
 }
-.sortWrap .subSort .allSub{
-    z-index: 11;
-}
 .sortWrap .subSort .swiper{
     overflow: hidden;
     display: none;
@@ -96,13 +93,16 @@ header h1 a{
 .sortWrap .subSort .swiper.on{
     display: block;
 }
+.sortWrap .subSort .swiper.allSub.on{
+    display: none;
+}
 .sortWrap .subSort .swiper-wrapper{
     display: flex;
 }
 .sortWrap .subSort .swiper .swiper-slide{
-    padding: 4px 8px;
+    padding: 4px 12px;
     cursor: pointer;
-    color: #DBDBDB;
+    color: #aaa;
     font-size: 16px;
     font-weight: 400;
     width: auto;
@@ -134,18 +134,23 @@ header h1 a{
 }
 .sortWrap .subSort .baseSub .swiper-slide.on{
     color:#E46A2D;
+        font-weight: 600;
 }
 .sortWrap .subSort .glassSub .swiper-slide.on{
     color:#3675EA;
+    font-weight: 600;
 }
 .sortWrap .subSort .methodSub .swiper-slide.on{
     color:#A55DCD;
+    font-weight: 600;
 }
 .sortWrap .subSort .garnishSub .swiper-slide.on{
     color:#52B908;
+    font-weight: 600;
 }
 .sortWrap .subSort .etcSub .swiper-slide.on{
     color:#F3B711;
+    font-weight: 600;
 }
 
 /* 카드 */
