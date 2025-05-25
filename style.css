@@ -6,6 +6,10 @@ body {
     display: none;
 }
 
+
+
+
+
 /* 헤더 */
 /* header{
     width: 100%;
@@ -23,10 +27,18 @@ header h1 a{
     padding: 8px;
 } */
 
+
+
+
+
 /* 콘텐츠 */
 .contents{
     padding: 24px 20px;
 }
+
+
+
+
 
 /* 구분 */
 .sortWrap{
@@ -59,6 +71,8 @@ header h1 a{
 .sortWrap .mainSort li.on svg path{
     stroke: #fff;
 }
+
+/* 메인 구분 색상 */
 .sortWrap .mainSort li.all.on{
     background-color: #777777;
     color: #fff;
@@ -108,6 +122,8 @@ header h1 a{
     width: auto;
     white-space: nowrap;
 }
+
+/* 스와이퍼 양 끝 페이드 */
 .swiper-fade-left,
 .swiper-fade-right {
     position: absolute;
@@ -129,6 +145,8 @@ header h1 a{
 .fade-hidden {
     opacity: 0;
 }
+
+/* 서브 구분 색상 */
 .sortWrap .subSort .allSub .swiper-slide.on{
     color:#777777;
 }
@@ -152,6 +170,10 @@ header h1 a{
     color:#F3B711;
     font-weight: 600;
 }
+
+
+
+
 
 /* 카드 */
 .cardWrap{
@@ -195,12 +217,135 @@ header h1 a{
     gap: 8px;
 }
 .cardWrap .card .imgWrap .img{
-    background: url(img/img.jpg) no-repeat center/cover;
     display: block;
     width: calc(50% - 4px);
     border-radius: 8px;
     height: 160px;
 }
+
+/* 칵테일 이미지들 시작 */
+.cardWrap .card.manhattan .imgWrap .img{
+    background: url(img/manhattan.jpg) no-repeat center/cover;
+}
+.cardWrap .card.oldFashioned .imgWrap .img{
+    background: url(img/oldfashioned.jpg) no-repeat center/cover;
+}
+.cardWrap .card.newYork .imgWrap .img{
+    background: url(img/newYork.jpg) no-repeat center/cover;
+}
+.cardWrap .card.whiskeySour .imgWrap .img{
+    background: url(img/whiskeySour.jpg) no-repeat center/cover;
+}
+.cardWrap .card.boulevardier .imgWrap .img{
+    background: url(img/boulevardier.jpg) no-repeat center/cover;
+}
+.cardWrap .card.rustyNail .imgWrap .img{
+    background: url(img/rustyNail.jpg) no-repeat center/cover;
+}
+.cardWrap .card.sideCar .imgWrap .img{
+    background: url(img/rustyNail.jpg) no-repeat center/cover;
+}
+.cardWrap .card.brandyAlex .imgWrap .img{
+    background: url(img/brandyAlex.jpg) no-repeat center/cover;
+}
+.cardWrap .card.honeymoon .imgWrap .img{
+    background: url(img/honeymoon.jpg) no-repeat center/cover;
+}
+.cardWrap .card.blackRussian .imgWrap .img{
+    background: url(img/blackRussian.jpg) no-repeat center/cover;
+}
+.cardWrap .card.moscowMule .imgWrap .img{
+    background: url(img/moscowMule.jpg) no-repeat center/cover;
+}
+.cardWrap .card.seabreeze .imgWrap .img{
+    background: url(img/seabreeze.jpg) no-repeat center/cover;
+}
+.cardWrap .card.cosmopol .imgWrap .img{
+    background: url(img/cosmopol.jpg) no-repeat center/cover;
+}
+.cardWrap .card.appleMartini .imgWrap .img{
+    background: url(img/appleMartini.jpg) no-repeat center/cover;
+}
+.cardWrap .card.pinaCol .imgWrap .img{
+    background: url(img/pinaCol.jpg) no-repeat center/cover;
+}
+.cardWrap .card.blueHaw .imgWrap .img{
+    background: url(img/blueHaw.jpg) no-repeat center/cover;
+}
+.cardWrap .card.maiTai .imgWrap .img{
+    background: url(img/maiTai.jpg) no-repeat center/cover;
+}
+.cardWrap .card.cubaLibre .imgWrap .img{
+    background: url(img/cubaLibre.jpg) no-repeat center/cover;
+}
+.cardWrap .card.daiquiri .imgWrap .img{
+    background: url(img/daiquiri.jpg) no-repeat center/cover;
+}
+.cardWrap .card.bacardi .imgWrap .img{
+    background: url(img/bacardi.jpg) no-repeat center/cover;
+}
+.cardWrap .card.tequilaSun .imgWrap .img{
+    background: url(img/tequilaSun.jpg) no-repeat center/cover;
+}
+.cardWrap .card.margarita .imgWrap .img{
+    background: url(img/margarita.jpg) no-repeat center/cover;
+}
+.cardWrap .card.dryMartini .imgWrap .img{
+    background: url(img/dryMartini.jpg) no-repeat center/cover;
+}
+.cardWrap .card.negroni .imgWrap .img{
+    background: url(img/negroni.jpg) no-repeat center/cover;
+}
+.cardWrap .card.singapore .imgWrap .img{
+    background: url(img/singapore.jpg) no-repeat center/cover;
+}
+.cardWrap .card.ginFizz .imgWrap .img{
+    background: url(img/ginFizz.jpg) no-repeat center/cover;
+}
+.cardWrap .card.longTea .imgWrap .img{
+    background: url(img/longTea.jpg) no-repeat center/cover;
+}
+.cardWrap .card.apricot .imgWrap .img{
+    background: url(img/apricot.jpg) no-repeat center/cover;
+}
+.cardWrap .card.grass .imgWrap .img{
+    background: url(img/grass.jpg) no-repeat center/cover;
+}
+.cardWrap .card.juneBug .imgWrap .img{
+    background: url(img/juneBug.jpg) no-repeat center/cover;
+}
+.cardWrap .card.pousse .imgWrap .img{
+    background: url(img/pousse.jpg) no-repeat center/cover;
+}
+.cardWrap .card.b52 .imgWrap .img{
+    background: url(img/b52.jpg) no-repeat center/cover;
+}
+.cardWrap .card.kir .imgWrap .img{
+    background: url(img/kir.jpg) no-repeat center/cover;
+}
+.cardWrap .card.freshLeomon .imgWrap .img{
+    background: url(img/freshLeomon.jpg) no-repeat center/cover;
+}
+.cardWrap .card.virginFruit .imgWrap .img{
+    background: url(img/virginFruit.jpg) no-repeat center/cover;
+}
+.cardWrap .card.healing .imgWrap .img{
+    background: url(img/healing.jpg) no-repeat center/cover;
+}
+.cardWrap .card.jindo .imgWrap .img{
+    background: url(img/jindo.jpg) no-repeat center/cover;
+}
+.cardWrap .card.puppyLove .imgWrap .img{
+    background: url(img/puppyLove.jpg) no-repeat center/cover;
+}
+.cardWrap .card.geumsan .imgWrap .img{
+    background: url(img/geumsan.jpg) no-repeat center/cover;
+}
+.cardWrap .card.gochang .imgWrap .img{
+    background: url(img/gochang.jpg) no-repeat center/cover;
+}
+/* 칵테일 이미지들 끝 */
+
 .cardWrap .card .imgWrap .topic{
     width: calc(50% - 4px);
     display: inline-flex;
