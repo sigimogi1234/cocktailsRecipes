@@ -220,7 +220,7 @@ header h1 a{
     display: block;
     width: calc(50% - 4px);
     border-radius: 8px;
-    height: 160px;
+    height: 44vw;
 }
 
 /* 칵테일 이미지들 시작 */
