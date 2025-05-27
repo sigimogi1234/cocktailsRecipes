@@ -34,6 +34,8 @@ header h1 a{
 /* 콘텐츠 */
 .contents{
     padding: 24px 20px 0px 20px;
+    background-color: #f8f8f8;
+    margin-bottom: 74px;
 }
 
 
@@ -426,6 +428,9 @@ header h1 a{
 
 /* adzone */
 .adZone{
+    position: fixed;
+    bottom: 0;
+    z-index: -1;
     width: 100%;
     height: 74px;
     display: flex;
