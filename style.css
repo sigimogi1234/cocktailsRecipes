@@ -35,7 +35,9 @@ header h1 a{
 .contents{
     padding: 24px 20px 0px 20px;
     background-color: #f8f8f8;
+    margin: 0 auto;
     margin-bottom: 74px;
+    max-width: 720px;
 }
 
 
@@ -178,13 +180,13 @@ header h1 a{
 
 
 /* 카드 */
-.cardWrap{
+.cardWrap {
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 16px;
 }
-.cardWrap .card{
+.cardWrap .card {
     width: 100%;
     background-color: #fff;
     border-radius: 16px;
@@ -357,26 +359,25 @@ header h1 a{
 }
 .cardWrap .card .imgWrap .topic li{
     padding: 4px 8px;
-    border-radius: 100px;
+    border-radius: 8px;
     font-size: 14px;
-    letter-spacing: -0.04rem;
     font-weight: 400;
 }
 .cardWrap .card .imgWrap .topic li.baseTopic{
     color: #E46A2D;
-    border: 1px solid #E46A2D;
+    border: 1px solid #EEB99F;
 }
 .cardWrap .card .imgWrap .topic li.glassTopic{
     color: #3675EA;
-    border: 1px solid #3675EA;
+    border: 1px solid #A1C1FC;
 }
 .cardWrap .card .imgWrap .topic li.methodTopic{
     color: #A55DCD;
-    border: 1px solid #A55DCD;
+    border: 1px solid #D0AEE3;
 }
 .cardWrap .card .imgWrap .topic li.garnishTopic{
     color: #52B908;
-    border: 1px solid #52B908;
+    border: 1px solid #B0DE8F;
 }
 .cardWrap .card .recipeWrap{
     padding: 12px;
@@ -421,6 +422,23 @@ header h1 a{
     font-size: 14px;
     font-weight: 400;
     color: #777777;
+}
+
+
+
+
+
+/* 반응형 */
+@media (min-width: 580px) {
+    .sortWrap .mainSort li{
+    padding: 12px 0;
+}
+    .cardWrap {
+        grid-template-columns: 1fr 1fr;
+    }
+    .cardWrap .card .imgWrap .img{
+    height: 160px;
+}
 }
 
 
