@@ -33,11 +33,12 @@ header h1 a{
 
 /* 콘텐츠 */
 .contents{
-    padding: 24px 20px 0px 20px;
+    /* padding: 20px 20px 0px 20px; */
     background-color: #f8f8f8;
     margin: 0 auto;
     margin-bottom: 74px;
     max-width: 720px;
+    position: relative;
 }
 
 
@@ -47,7 +48,17 @@ header h1 a{
 /* 구분 */
 .sortWrap{
     width: 100%;
-    margin-bottom: 16px;
+    max-width: 720px;
+    padding: 20px 20px 12px 20px;
+    background-color: #f8f8f8;
+    position: fixed;
+    transition: all 0.3s;
+}
+.sortWrap.scrollHide {
+    transform: translateY(-100%);
+}
+.sortWrap.scrolled{
+    border-bottom: 1px solid #DBDBDB;
 }
 .sortWrap .mainSort{
     width: 100%;
@@ -56,7 +67,6 @@ header h1 a{
     margin-bottom: 8px;
 }
 .sortWrap .mainSort li{
-    background-color: #f8f8f8;
     color: #aaa;
     border-radius: 8px;
     padding: 6px 0;
@@ -182,6 +192,7 @@ header h1 a{
 /* 카드 */
 .cardWrap {
     width: 100%;
+    padding: 0 20px;
     display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
@@ -193,7 +204,8 @@ header h1 a{
     border: 1px solid #DBDBDB;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     padding: 16px;
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 .cardWrap .card.hide{
     display: none;
@@ -379,8 +391,9 @@ header h1 a{
     color: #52B908;
     border: 1px solid #B0DE8F;
 }
-.cardWrap .card .recipeWrap{
+.cardWrap .card .recipeWrap {
     padding: 12px;
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 8px;

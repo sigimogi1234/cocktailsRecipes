@@ -123,3 +123,51 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
+
+
+// 카테고리 스크롤시 상단에 보임
+(function () {
+    const sortWrap = document.querySelector('.sortWrap');
+    const cardWrap = document.querySelector('.cardWrap');
+
+    let lastScrollY = window.scrollY;
+
+    function adjustCardWrapPadding() {
+        if (sortWrap && cardWrap) {
+            const navHeight = sortWrap.offsetHeight;
+            cardWrap.style.paddingTop = `${navHeight}px`;
+        }
+    }
+
+    // 네비게이션 높이 변화를 감지
+    const resizeObserver = new ResizeObserver(adjustCardWrapPadding);
+    resizeObserver.observe(sortWrap);
+
+    // 초기 패딩 적용
+    adjustCardWrapPadding();
+
+    // 스크롤 방향 감지 및 네비게이션 숨김/표시
+    window.addEventListener('scroll', () => {
+        const currentY = window.scrollY;
+
+        if (currentY > lastScrollY + 10) {
+            // 아래로 스크롤 → 숨김
+            sortWrap.classList.add('scrollHide');
+        } else if (currentY < lastScrollY - 2) {
+            // 위로 스크롤 → 보임
+            sortWrap.classList.remove('scrollHide');
+        }
+
+        if (currentY > 0) {
+            sortWrap.classList.add('scrolled');
+        } else {
+            sortWrap.classList.remove('scrolled');
+        }
+
+        lastScrollY = currentY;
+    });
+
+    // 윈도우 리사이즈 시 패딩 재계산
+    window.addEventListener('resize', adjustCardWrapPadding);
+})();
