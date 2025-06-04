@@ -461,7 +461,7 @@ header h1 a{
 @media (min-width: 580px) {
 
 .contents{
-    margin-bottom: 94px;
+    margin-bottom: 106px;
 }
 
 .sortWrap .mainSort li{
@@ -476,6 +476,6 @@ header h1 a{
 }
 
 .adZone{
-    height: 94px;
+    height: 106px;
 }
 }
