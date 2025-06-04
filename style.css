@@ -78,6 +78,7 @@ header h1 a{
     justify-content: center;
     align-items: center;
     width: 100%;
+    transition: all 0.3s;
 }
 .sortWrap .mainSort li svg path{
     stroke: #aaa;
@@ -441,22 +442,6 @@ header h1 a{
 
 
 
-/* 반응형 */
-@media (min-width: 580px) {
-    .sortWrap .mainSort li{
-    padding: 12px 0;
-}
-    .cardWrap {
-        grid-template-columns: 1fr 1fr;
-    }
-    .cardWrap .card .imgWrap .img{
-    height: 160px;
-}
-}
-
-
-
-
 /* adzone */
 .adZone{
     position: fixed;
@@ -467,4 +452,30 @@ header h1 a{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+
+
+/* 반응형 */
+@media (min-width: 580px) {
+
+.contents{
+    margin-bottom: 94px;
+}
+
+.sortWrap .mainSort li{
+    padding: 12px 0;
+}
+
+.cardWrap {
+        grid-template-columns: 1fr 1fr;
+}
+.cardWrap .card .imgWrap .img{
+    height: 160px;
+}
+
+.adZone{
+    height: 94px;
+}
 }
