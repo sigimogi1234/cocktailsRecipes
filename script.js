@@ -180,6 +180,24 @@ document.addEventListener('DOMContentLoaded', function () {
 const searchWrap = document.querySelector('.searchWrap');
 const searchInput = searchWrap.querySelector('.searchInput');
 
+searchWrap.addEventListener('click', (e) => {
+    // 클릭 시 active 토글
+    searchWrap.classList.toggle('active');
+
+    if (searchWrap.classList.contains('active')) {
+        searchInput.focus();
+    } else {
+        searchInput.blur();
+    }
+});
+
+document.addEventListener('click', (e) => {
+    // searchWrap 외부 클릭 시 active 제거
+    if (!searchWrap.contains(e.target)) {
+        searchWrap.classList.remove('active');
+    }
+});
+
 if (window.visualViewport) {
     const originalBottom = parseInt(getComputedStyle(searchWrap).bottom);
 
@@ -188,11 +206,11 @@ if (window.visualViewport) {
         const viewportOffsetTop = window.visualViewport.offsetTop;
 
         if (keyboardHeight > 0) {
-            // 키보드가 올라왔을 때 위치 보정 (offsetTop을 더해줌)
+            // 키보드가 올라왔을 때 bottom 값 + offsetTop 보정해서 고정
             searchWrap.style.position = 'fixed';
             searchWrap.style.bottom = `${keyboardHeight - viewportOffsetTop + 20}px`;
         } else {
-            // 키보드 없으면 원래 위치 복원
+            // 키보드 없으면 원래 위치로 복원
             searchWrap.style.position = 'fixed';
             searchWrap.style.bottom = `${originalBottom}px`;
         }
