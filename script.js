@@ -180,38 +180,27 @@ document.addEventListener('DOMContentLoaded', function () {
 const searchWrap = document.querySelector('.searchWrap');
 const searchInput = searchWrap.querySelector('.searchInput');
 
-searchWrap.addEventListener('click', () => {
-    searchWrap.classList.toggle('active');
-
-    if (searchWrap.classList.contains('active')) {
-        searchInput.focus();
-    } else {
-        searchInput.blur();
-    }
-});
-
-document.addEventListener('click', (e) => {
-    if (!searchWrap.contains(e.target)) {
-        searchWrap.classList.remove('active');
-    }
-});
-
-// 모바일 키보드 등장에 대응하는 코드
 if (window.visualViewport) {
-    let originalBottom = getComputedStyle(searchWrap).bottom;
+    const originalBottom = parseInt(getComputedStyle(searchWrap).bottom);
 
-    window.visualViewport.addEventListener('resize', () => {
-        // visualViewport.height가 줄면 키보드가 올라온 상태
-        if (window.visualViewport.height < window.innerHeight) {
-            // 키보드 높이만큼 searchWrap을 올림
-            const keyboardHeight = window.innerHeight - window.visualViewport.height;
+    function updatePosition() {
+        const keyboardHeight = window.innerHeight - window.visualViewport.height;
+        const viewportOffsetTop = window.visualViewport.offsetTop;
+
+        if (keyboardHeight > 0) {
+            // 키보드가 올라왔을 때 위치 보정 (offsetTop을 더해줌)
+            searchWrap.style.position = 'fixed';
+            searchWrap.style.bottom = `${keyboardHeight - viewportOffsetTop + 20}px`;
         } else {
-            // 키보드 내려갔을 때 원래 위치 복원
-            searchWrap.style.bottom = originalBottom;
+            // 키보드 없으면 원래 위치 복원
+            searchWrap.style.position = 'fixed';
+            searchWrap.style.bottom = `${originalBottom}px`;
         }
-    });
-}
+    }
 
+    window.visualViewport.addEventListener('resize', updatePosition);
+    window.visualViewport.addEventListener('scroll', updatePosition);
+}
 
 
 
