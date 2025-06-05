@@ -196,6 +196,23 @@ document.addEventListener('click', (e) => {
     }
 });
 
+// 모바일 키보드 등장에 대응하는 코드
+if (window.visualViewport) {
+    let originalBottom = getComputedStyle(searchWrap).bottom;
+
+    window.visualViewport.addEventListener('resize', () => {
+        // visualViewport.height가 줄면 키보드가 올라온 상태
+        if (window.visualViewport.height < window.innerHeight) {
+            // 키보드 높이만큼 searchWrap을 올림
+            const keyboardHeight = window.innerHeight - window.visualViewport.height;
+        } else {
+            // 키보드 내려갔을 때 원래 위치 복원
+            searchWrap.style.bottom = originalBottom;
+        }
+    });
+}
+
+
 
 
 
