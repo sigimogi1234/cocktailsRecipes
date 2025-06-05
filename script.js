@@ -171,3 +171,51 @@ document.addEventListener('DOMContentLoaded', function () {
     // 윈도우 리사이즈 시 패딩 재계산
     window.addEventListener('resize', adjustCardWrapPadding);
 })();
+
+
+
+
+
+// 검색창
+const searchWrap = document.querySelector('.searchWrap');
+const searchInput = searchWrap.querySelector('.searchInput');
+
+searchWrap.addEventListener('click', () => {
+    searchWrap.classList.toggle('active');
+
+    if (searchWrap.classList.contains('active')) {
+        searchInput.focus();
+    } else {
+        searchInput.blur();
+    }
+});
+
+document.addEventListener('click', (e) => {
+    if (!searchWrap.contains(e.target)) {
+        searchWrap.classList.remove('active');
+    }
+});
+
+
+
+
+
+// 검색기능
+const searchInput2 = document.querySelector('.searchInput');
+const cards = document.querySelectorAll('.cardWrap .card');
+
+searchInput2.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase().trim();
+
+    cards.forEach(card => {
+        // note 요소의 텍스트만 빼고 나머지만 추출
+        const clone = card.cloneNode(true); // .card 복사
+        const note = clone.querySelector('.note');
+        if (note) note.remove(); // .note 제거
+
+        const textWithoutNote = clone.textContent.toLowerCase().trim();
+
+        // 검색어 포함 여부로 표시 제어
+        card.style.display = textWithoutNote.includes(query) ? '' : 'none';
+    });
+});

@@ -442,6 +442,58 @@ header h1 a{
 
 
 
+/* search */
+.searchWrap{
+    margin: 0 20px;
+    padding: 0 16px;
+    position: fixed;
+    bottom: 74px;
+    right: 0;
+    left: auto;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    background-color: rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+    cursor: pointer;
+    user-select: none;
+}
+.searchWrap svg{
+    width: 14px;
+    height: 14px;
+}
+.searchInput{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    width: 0;
+    opacity: 0;
+    transition: all 0.3s;
+}
+.searchInput::placeholder {
+    color: #dbdbdb;
+}
+.searchWrap.active{
+    background-color: rgba(0, 0, 0, 0.32);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+.searchWrap.active .searchInput {   
+    width: 120px;
+    opacity: 1;
+    padding-left: 4px;
+}
+
+
+
+
+
 /* adzone */
 .adZone{
     position: fixed;
@@ -453,6 +505,7 @@ header h1 a{
     justify-content: center;
     align-items: center;
 }
+
 
 
 
@@ -473,6 +526,21 @@ header h1 a{
 }
 .cardWrap .card .imgWrap .img{
     height: 160px;
+}
+
+.searchWrap{
+    bottom: 106px;
+    height: 48px;
+}
+.searchWrap svg{
+    width: 18px;
+    height: 18px;
+}
+.searchInput{
+    font-size: 16px;
+}
+.searchWrap.active .searchInput {   
+    width: 160px;
 }
 
 .adZone{
