@@ -44,12 +44,73 @@ header h1 a{
 
 
 
+/* search */
+.searchWrap{
+    width: 100%;
+    max-width: 720px;
+    padding: 16px 20px;
+    position: fixed;
+    z-index: 999;
+    background-color: #f8f8f8;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    transition: all 0.3s;
+}
+.searchWrap.scrolled{
+    border-bottom: 1px solid #DBDBDB;
+}
+.searchWrap .logo img{
+    display: block;
+    height: 32px;
+    width: 32px;
+}
+.searchBtn{
+    width: 100%;
+    padding: 0 16px;
+    height: 32px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border-radius: 16px;
+    border: 1px solid #dbdbdb;
+    background-color: #fff;
+    transition: all 0.3s;
+}
+.searchWrap img.ic_search{
+    display: block;
+    width: 16px;
+    height: 16px;
+    fill: #494949;
+}
+.searchWrap img.ic_close{
+    width: 12px;
+    height: 12px;
+    display: none;
+    cursor: pointer;
+}
+.searchInput{
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 400;
+    color: #494949;
+}
+.searchInput::placeholder {
+    color: #aaa;
+}
+
+
+
+
 
 /* 구분 */
 .sortWrap{
     width: 100%;
     max-width: 720px;
-    padding: 20px 20px 12px 20px;
+    padding: 64px 20px 12px 20px;
     background-color: #f8f8f8;
     position: fixed;
     transition: all 0.3s;
@@ -442,58 +503,6 @@ header h1 a{
 
 
 
-/* search */
-.searchWrap{
-    margin: 0 20px;
-    padding: 0 16px;
-    position: fixed;
-    bottom: 74px;
-    right: 0;
-    left: auto;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    border-radius: 16px;
-    background-color: rgba(0, 0, 0, 0.16);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s;
-    cursor: pointer;
-    user-select: none;
-}
-.searchWrap svg{
-    width: 14px;
-    height: 14px;
-}
-.searchInput{
-    border: none;
-    outline: none;
-    background-color: transparent;
-    font-size: 14px;
-    font-weight: 400;
-    color: #fff;
-    width: 0;
-    opacity: 0;
-    transition: all 0.3s;
-}
-.searchInput::placeholder {
-    color: #dbdbdb;
-}
-.searchWrap.active{
-    background-color: rgba(0, 0, 0, 0.32);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-}
-.searchWrap.active .searchInput {   
-    width: 120px;
-    opacity: 1;
-    padding-left: 4px;
-}
-
-
-
-
-
 /* adzone */
 .adZone{
     position: fixed;
@@ -504,6 +513,10 @@ header h1 a{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.adZone svg{
+    width: 24px;
+    height: 24px;
 }
 
 
@@ -517,6 +530,30 @@ header h1 a{
     margin-bottom: 106px;
 }
 
+.searchWrap .logo img{
+    display: block;
+    height: 40px;
+    width: 40px;
+}
+.searchBtn{
+    height: 40px;
+    border-radius: 20px;
+}
+.searchWrap img.ic_search{
+    width: 18px;
+    height: 18px;
+}
+.searchWrap img.ic_close{
+    width: 14px;
+    height: 14px;
+}
+.searchInput{
+    font-size: 16px;
+}
+
+.sortWrap{
+    padding: 72px 20px 12px 20px;
+}
 .sortWrap .mainSort li{
     padding: 12px 0;
 }
@@ -526,21 +563,6 @@ header h1 a{
 }
 .cardWrap .card .imgWrap .img{
     height: 160px;
-}
-
-.searchWrap{
-    bottom: 106px;
-    height: 48px;
-}
-.searchWrap svg{
-    width: 18px;
-    height: 18px;
-}
-.searchInput{
-    font-size: 16px;
-}
-.searchWrap.active .searchInput {   
-    width: 160px;
 }
 
 .adZone{

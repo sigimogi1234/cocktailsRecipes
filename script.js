@@ -176,70 +176,59 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// 검색창
-const searchWrap = document.querySelector('.searchWrap');
-const searchInput = searchWrap.querySelector('.searchInput');
-
-searchWrap.addEventListener('click', (e) => {
-    // 클릭 시 active 토글
-    searchWrap.classList.toggle('active');
-
-    if (searchWrap.classList.contains('active')) {
-        searchInput.focus();
-    } else {
-        searchInput.blur();
-    }
-});
-
-document.addEventListener('click', (e) => {
-    // searchWrap 외부 클릭 시 active 제거
-    if (!searchWrap.contains(e.target)) {
-        searchWrap.classList.remove('active');
-    }
-});
-
-if (window.visualViewport) {
-    const originalBottom = parseInt(getComputedStyle(searchWrap).bottom);
-
-    function updatePosition() {
-        const keyboardHeight = window.innerHeight - window.visualViewport.height;
-        const viewportOffsetTop = window.visualViewport.offsetTop;
-
-        if (keyboardHeight > 0) {
-            // 키보드가 올라왔을 때 bottom 값 + offsetTop 보정해서 고정
-            searchWrap.style.position = 'fixed';
-            searchWrap.style.bottom = `${keyboardHeight - viewportOffsetTop + 20}px`;
-        } else {
-            // 키보드 없으면 원래 위치로 복원
-            searchWrap.style.position = 'fixed';
-            searchWrap.style.bottom = `${originalBottom}px`;
-        }
-    }
-
-    window.visualViewport.addEventListener('resize', updatePosition);
-    window.visualViewport.addEventListener('scroll', updatePosition);
-}
-
-
-
-
-
 // 검색기능
-const searchInput2 = document.querySelector('.searchInput');
+const searchInput = document.querySelector('.searchInput');
 const cards = document.querySelectorAll('.cardWrap .card');
+const closeBtn = document.querySelector('.ic_close');
 
-searchInput2.addEventListener('input', () => {
-    const query = searchInput.value.toLowerCase().trim();
-
+// 🔁 검색 필터링 함수 분리
+function filterCards(query) {
     cards.forEach(card => {
-        // note 요소의 텍스트만 빼고 나머지만 추출
-        const clone = card.cloneNode(true); // .card 복사
+        const clone = card.cloneNode(true);
         const note = clone.querySelector('.note');
-        if (note) note.remove(); // .note 제거
+        if (note) note.remove();
 
         const textWithoutNote = clone.textContent.toLowerCase().trim();
-
-        // 검색어 포함 여부로 표시 제어
         card.style.display = textWithoutNote.includes(query) ? '' : 'none';
     });
+}
+
+// 입력 이벤트 처리
+searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase().trim();
+
+    filterCards(query);
+    closeBtn.style.display = query !== '' ? 'block' : 'none';
 });
+
+// 닫기 버튼 클릭 시 초기화 후 input 이벤트 강제 트리거
+closeBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    filterCards(''); // 전체 카드 다시 표시
+    closeBtn.style.display = 'none';
+    searchInput.focus(); // UX 개선
+});
+
+
+
+
+
+// searchWrap 스크롤 이벤트
+(function () {
+    const searchWrap = document.querySelector('.searchWrap');
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+        const currentY = window.scrollY;
+
+        if (currentY > lastScrollY + 10) {
+            // 아래로 충분히 스크롤 → scrolled 클래스 추가
+            searchWrap.classList.add('scrolled');
+        } else if (currentY < lastScrollY - 2) {
+            // 위로 조금이라도 스크롤 → scrolled 클래스 제거
+            searchWrap.classList.remove('scrolled');
+        }
+
+        lastScrollY = currentY;
+    });
+})();
