@@ -283,16 +283,19 @@ header h1 a{
     font-size: 20px;
     font-weight: 600;
     color: #494949;
+    transition: all 0.3s;
 }
 .cardWrap .card .titleWrap .titleEng{
     font-size: 14px;
     font-weight: 400;
     color: #777777;
+    transition: all 0.3s;
 }
 .cardWrap .card .imgWrap{
     margin-bottom: 8px;
     display: flex;
     gap: 8px;
+    transition: all 0.3s;
 }
 .cardWrap .card .imgWrap .img{
     display: block;
@@ -499,6 +502,57 @@ header h1 a{
     color: #777777;
 }
 
+/* 암기 버튼 */
+.cardWrap .card .completeBtnWrap{
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+    margin-top: 16px;
+    cursor: pointer;
+}
+.cardWrap .card .completeBtnWrap.on{
+    margin-top: 0px;
+}
+.completeBtnWrap .completeBtn{
+    padding: 2px 12px 2px 2px;
+    background-color: #aaa;
+    border-radius: 7px;
+    transition: all 0.3s;
+}
+.completeBtnWrap.on .completeBtn{
+    padding: 2px 2px 2px 12px;
+    background-color: #52B908;
+}
+.completeBtnWrap .completeBtn .toggle{
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    transition: all 0.3s;
+}
+.completeBtnWrap::before{
+    content: "암기중";
+    font-size: 14px;
+    font-weight: 400;
+    color: #aaa;
+}
+.completeBtnWrap.on::before{
+    content: "암기완료";
+    color: #52B908;
+}
+
+/* 암기버튼 on이면 안보이게 */
+.card.folded .imgWrap,
+.card.folded .recipeWrap{
+    display: none;
+}
+.cardWrap .card.folded .titleWrap .title,
+.cardWrap .card.folded .titleWrap .titleEng{
+    color: #dbdbdb;
+}
+
 
 
 
@@ -559,7 +613,7 @@ header h1 a{
 }
 
 .cardWrap {
-        grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 .cardWrap .card .imgWrap .img{
     height: 160px;
