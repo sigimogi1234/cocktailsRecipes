@@ -67,20 +67,23 @@ function filterCards(filterClass) {
 setTimeout(() => {
     document.querySelectorAll('.mainSort li').forEach(mainItem => {
         mainItem.addEventListener('click', function () {
+            // 1. mainSort 상태 초기화 및 설정
             document.querySelectorAll('.mainSort li').forEach(li => li.classList.remove('on'));
             this.classList.add('on');
 
+            // 2. subSort 초기화
             document.querySelectorAll('.subSort .swiper').forEach(swiper => {
                 swiper.classList.remove('on');
                 swiper.querySelectorAll('.swiper-slide').forEach(slide => slide.classList.remove('on'));
             });
 
+            // 3. 활성화할 타겟 클래스 추출
             const targetClass = Array.from(this.classList).find(cls =>
                 ['all', 'base', 'glass', 'method', 'garnish', 'etc'].includes(cls)
             );
-
             if (!targetClass) return;
 
+            // 4. subSwiper 활성화 및 첫 슬라이드 처리
             const subSwiper = document.querySelector(`.${targetClass}Sub`);
             if (subSwiper) {
                 subSwiper.classList.add('on');
@@ -91,6 +94,27 @@ setTimeout(() => {
                     if (filterClass) filterCards(filterClass);
                 }
             }
+
+            // 5. topic li on 클래스 처리 (모든 .card에 대해 처리)
+            const topicMap = {
+                base: 'baseTopic',
+                glass: 'glassTopic',
+                method: 'methodTopic',
+                garnish: 'garnishTopic'
+            };
+
+            const allCards = document.querySelectorAll('.card');
+            allCards.forEach(card => {
+                const topicItems = card.querySelectorAll('.imgWrap .topic li');
+                topicItems.forEach(li => li.classList.remove('on')); // 모든 on 제거
+
+                if (targetClass === 'all') {
+                    topicItems.forEach(li => li.classList.add('on')); // 모두 on 추가
+                } else if (topicMap[targetClass]) {
+                    const matchedTopic = card.querySelector(`.imgWrap .topic li.${topicMap[targetClass]}`);
+                    if (matchedTopic) matchedTopic.classList.add('on');
+                }
+            });
         });
     });
 
@@ -201,7 +225,7 @@ setTimeout(() => {
 // 카드 암기 버튼
 document.querySelectorAll('.card').forEach(card => {
     const id = card.dataset.id;
-    const completeBtnWrap = card.querySelector('.completeBtnWrap');
+    const completeBtnWrap = card.querySelector('.completeBtn');
     const titleWrap = card.querySelector('.titleWrap');
     const title = titleWrap.querySelector('.title');
     const titleEng = titleWrap.querySelector('.titleEng');
